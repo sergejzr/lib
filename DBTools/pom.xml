@@ -9,7 +9,7 @@
 <scm>
     <connection>scm:svn:https://github.com/sergejzr/lib.git</connection>
     <developerConnection>scm:svn:https://github.com/sergejzr/lib</developerConnection>
-    <url>https://github.com/sergejzr/lib</url>
+    <url>https://github.com/sergejzr/lib.git</url>
   </scm>
   
   <distributionManagement>
@@ -46,7 +46,7 @@
                 <outputDirectory>${project.build.directory}/mvn-repo</outputDirectory> <!-- matches distribution management repository url above -->
                 <branch>refs/heads/mvn-repo</branch>                       <!-- remote branch name -->
                 <includes><include>**/*</include></includes>
-                <repositoryName>https://github.com/sergejzr/lib.git</repositoryName>      <!-- github repo name -->
+                <repositoryName>lib</repositoryName>      <!-- github repo name -->
                 <repositoryOwner>sergejzr</repositoryOwner>    <!-- github username  -->
             </configuration>
             <executions>
@@ -67,14 +67,7 @@
         </configuration>
     </plugin>
     
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-scm-plugin</artifactId>
-        <version>1.9.5</version>
-        <configuration>
-          <connectionType>developerConnection</connectionType>
-        </configuration>
-      </plugin>
+
 
 			<plugin>
 				<artifactId>maven-install-plugin</artifactId>
