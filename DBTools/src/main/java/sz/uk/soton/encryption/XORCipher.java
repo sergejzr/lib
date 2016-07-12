@@ -6,6 +6,7 @@ public class XORCipher {
 	
 	public static String encrypt(String plainText, String keyPhrase)
 	{
+		
 		byte[] out=new byte[plainText.length()];
 		for(int i=0;i<plainText.length();i++)
 		{
