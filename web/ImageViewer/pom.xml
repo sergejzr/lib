@@ -14,7 +14,20 @@
 			<name>Prime Repo</name>
 			<url>http://repository.primefaces.org</url>
 		</repository>
+		
+		    <repository>
+        <id>sergejzer github lib</id>
+        <url>https://raw.github.com/sergejzr/lib/mvn-repo/</url>
+        <snapshots>
+            <enabled>true</enabled>
+            <updatePolicy>always</updatePolicy>
+        </snapshots>
+    </repository>
+    
 	</repositories>
+	
+
+
 
 	<dependencies>
 	
@@ -88,6 +101,11 @@
 			<version>1.7.21</version>
 		</dependency>
 
+		<dependency>
+			<groupId>sz.uk.soton</groupId>
+			<artifactId>database</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>
