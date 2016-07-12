@@ -17,7 +17,6 @@ import javax.servlet.ServletContext;
 @PushEndpoint("/{room}/{user}")
 @Singleton
 public class ChatResource {
- 
     private final Logger logger = LoggerFactory.getLogger(ChatResource.class);
  
     @PathParam("room")
@@ -43,7 +42,7 @@ public class ChatResource {
          
         eventBus.publish(room + "/*", new Message(String.format("%s has left the room", username), true));
     }
- 
+    
     @OnMessage(decoders = {MessageDecoder.class}, encoders = {MessageEncoder.class})
     public Message onMessage(Message message) {
         return message;
