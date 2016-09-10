@@ -1,17 +1,17 @@
-package experiments;
+package com.github.sergejzr.de.l3s.experiments;
 
 import java.util.Arrays;
 import java.util.Date;
 import java.util.Random;
 import java.util.Vector;
 
-import l3s.rdj.document.Diversity;
-import l3s.rdj.document.Document;
-import l3s.rdj.impl.AllPairsDJ;
-import l3s.rdj.impl.SampleDJ;
-import l3s.rdj.impl.TrackDJ;
-import l3s.rdj.impl.TrackDJReadable;
-import l3s.toolbox.JaccardSimilarityComparator;
+import com.github.sergejzr.de.l3s.rdj.document.Diversity;
+import com.github.sergejzr.de.l3s.rdj.document.Document;
+import com.github.sergejzr.de.l3s.rdj.impl.AllPairsDJ;
+import com.github.sergejzr.de.l3s.rdj.impl.SampleDJ;
+import com.github.sergejzr.de.l3s.rdj.impl.TrackDJ;
+import com.github.sergejzr.de.l3s.rdj.impl.TrackDJReadable;
+import com.github.sergejzr.de.l3s.toolbox.JaccardSimilarityComparator;
 
 public class DiversityExample
 {

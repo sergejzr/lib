@@ -3,13 +3,13 @@
 // Decompiler options: packimports(3) 
 // Source File Name:   AllPairsDJ.java
 
-package l3s.rdj.impl;
+package com.github.sergejzr.de.l3s.rdj.impl;
 
 import java.util.Vector;
 
-import l3s.rdj.document.Diversity;
-import l3s.rdj.document.SimilarityComparator;
-import l3s.rdj.document.Document;
+import com.github.sergejzr.de.l3s.rdj.document.Diversity;
+import com.github.sergejzr.de.l3s.rdj.document.Document;
+import com.github.sergejzr.de.l3s.rdj.document.SimilarityComparator;
 
 public class AllPairsDJ extends Diversity
 {

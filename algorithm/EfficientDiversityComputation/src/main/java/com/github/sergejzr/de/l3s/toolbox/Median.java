@@ -3,7 +3,7 @@
 // Decompiler options: packimports(3) 
 // Source File Name:   Median.java
 
-package l3s.toolbox;
+package com.github.sergejzr.de.l3s.toolbox;
 
 import java.util.Arrays;
 

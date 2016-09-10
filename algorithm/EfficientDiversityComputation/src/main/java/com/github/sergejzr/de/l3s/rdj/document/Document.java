@@ -3,7 +3,7 @@
 // Decompiler options: packimports(3) 
 // Source File Name:   Document.java
 
-package l3s.rdj.document;
+package com.github.sergejzr.de.l3s.rdj.document;
 
 import java.util.HashSet;
 

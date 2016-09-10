@@ -3,10 +3,10 @@
 // Decompiler options: packimports(3) 
 // Source File Name:   JaccardSimilarityComparator.java
 
-package l3s.toolbox;
+package com.github.sergejzr.de.l3s.toolbox;
 
-import l3s.rdj.document.Document;
-import l3s.rdj.document.SimilarityComparator;
+import com.github.sergejzr.de.l3s.rdj.document.Document;
+import com.github.sergejzr.de.l3s.rdj.document.SimilarityComparator;
 
 // Referenced classes of package l3s.toolbox:
 //            Jaccard

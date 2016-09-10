@@ -3,7 +3,7 @@
 // Decompiler options: packimports(3) 
 // Source File Name:   SimilarityComparator.java
 
-package l3s.rdj.document;
+package com.github.sergejzr.de.l3s.rdj.document;
 
 
 // Referenced classes of package l3s.rdj:

@@ -3,7 +3,7 @@
 // Decompiler options: packimports(3) 
 // Source File Name:   indexItemType.java
 
-package l3s.rdj.impl;
+package com.github.sergejzr.de.l3s.rdj.impl;
 
 
 public class indexItemType

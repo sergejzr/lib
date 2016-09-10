@@ -3,48 +3,30 @@
 // Decompiler options: packimports(3) 
 // Source File Name:   TrackDJ.java
 
-package l3s.rdj.impl;
+package com.github.sergejzr.de.l3s.rdj.impl;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.Random;
 import java.util.Vector;
 
-import l3s.rdj.document.Diversity;
-import l3s.rdj.document.Document;
-import l3s.toolbox.JaccardSimilarityComparator;
-import l3s.toolbox.Median;
+import com.github.sergejzr.de.l3s.rdj.document.Diversity;
+import com.github.sergejzr.de.l3s.rdj.document.Document;
+import com.github.sergejzr.de.l3s.toolbox.JaccardSimilarityComparator;
+import com.github.sergejzr.de.l3s.toolbox.Median;
 
 // Referenced classes of package l3s.rdj.impl:
 //            indexItemType
 
-public class TrackDJReadable extends Diversity
+public class TrackDJ extends Diversity
 {
 
-    public TrackDJReadable(Vector docs, double error, double confidence)
+    public TrackDJ(Vector docs, double error, double confidence)
     {
         super(docs, error, confidence, new JaccardSimilarityComparator());
         HL = 31;
         primeMOD = 0x7fffffff;
     }
-
-    
-    public double getRDJNew()
-    {
-    	ArrayList<HashSet<String>> documents=new ArrayList<>();
-    	
-    	documents.addAll(getCollection());
-    	
-    	
-    	
-    	
-    	
-    	return 0.;
-    }
-    
 
     public double getRDJ()
     {
@@ -79,8 +61,6 @@ public class TrackDJReadable extends Diversity
         int result[] = extractLineStatistics(shortLine);
         extractLineStatistics(longLine);
         double bufRdj = trackDjBuf(shortLine, result, eps, del);
-        
-        
         double simSum = (bufRdj * (double)shortLine.length * (double)(shortLine.length - 1)) / 2D;
         for(int i = 0; i < shortLine.length; i++)
         {
@@ -159,15 +139,8 @@ public class TrackDJReadable extends Diversity
 
     double trackDjBuf(int line[][], int result[], double epsilon, double delta)
     {
-    	
         int L1 = (int)(((double)(result[2] - 1) / epsilon / epsilon) * 8D);
         int L2 = (int)Math.ceil(Math.log(1.0D / delta) / Math.log(2D));
-        
-        
-        
-        
-        
-        
         int idFreqBuf[] = initFreqBuf(result[1]);
         double f2list[] = new double[L2];
         int d = 1;

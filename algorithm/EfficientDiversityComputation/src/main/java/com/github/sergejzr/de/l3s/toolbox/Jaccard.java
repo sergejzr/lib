@@ -3,7 +3,7 @@
 // Decompiler options: packimports(3) 
 // Source File Name:   Jaccard.java
 
-package l3s.toolbox;
+package com.github.sergejzr.de.l3s.toolbox;
 
 import java.util.HashSet;
 import java.util.Iterator;

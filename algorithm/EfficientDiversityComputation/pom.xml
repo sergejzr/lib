@@ -1,25 +1,114 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>com.github.sergejzr.algorithms</groupId>
-  <artifactId>Diversity</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
- 
-	<packaging>jar</packaging>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.github.sergejzr.lib</groupId>
+	<artifactId>Diversity</artifactId>
+	<version>0.0.2-SNAPSHOT</version>
+
+	
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
+	<name>Efficient Diversity Computation of Large Datasets</name>
+	<developers>
+		<developer>
+			<name>Fan Deng</name>
+			<email>deng@L3S.de</email>
+			<organization>L3S Research Center</organization>
+			<organizationUrl>http://l3s.de</organizationUrl>
+		</developer>
+		<developer>
+			<name>Stefan Siersdorfer</name>
+			<email>siersdorfer@outloook.de</email>
+			<organization>Siersdorfer</organization>
+			<organizationUrl>http://www.l3s.de/~siersdorfer/</organizationUrl>
+		</developer>
+		<developer>
+			<name>Sergej Zerr</name>
+			<email>s.zerr@soton.ac.uk</email>
+			<organization>University of Southampton</organization>
+			<organizationUrl>http://www.southampton.ac.uk/</organizationUrl>
+		</developer>
+	</developers>
+
+	<distributionManagement>
+		<snapshotRepository>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+		</snapshotRepository>
+		<repository>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+		</repository>
+	</distributionManagement>
+
+
 	<description>
+	We propose two efficient algorithms for exploring topic diversity in large document corpora such as user generated content on the social web, bibliographic data, or other web repositories. Analyzing diversity is useful for obtaining insights into knowledge evolution, trends, periodicities, and topic heterogeneity of such collections. Calculating diversity statistics requires averaging over the similarity of all object pairs, which, for large corpora, is prohibitive from a computational point of view. Our proposed algorithms overcome the quadratic complexity of the average pair-wise similarity computation, and allow for constant time (depending on dataset properties) or linear time approximation with probabilistic guarantees.
 	</description>
-	
-	
-		
+
+	<url>http://dl.acm.org/citation.cfm?id=2398445</url>
+
+
+	<licenses>
+		<license>
+			<name>The Apache License, Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+		</license>
+	</licenses>
+
+	<scm>
+		<connection>scm:git:git://github.com/sergejzr/lib.git</connection>
+		<developerConnection>scm:git:ssh://github.com:sergejzr/lib.git</developerConnection>
+		<url>http://github.com/sergejzr/lib/tree/master/algorithm/EfficientDiversityComputation</url>
+	  <tag>Diversity-0.0.1</tag>
+  </scm>
 
 	<build>
-
 		<sourceDirectory>src/main/java</sourceDirectory>
 
 		<plugins>
 
+			<plugin>
+				<groupId>org.sonatype.plugins</groupId>
+				<artifactId>nexus-staging-maven-plugin</artifactId>
+				<version>1.6.7</version>
+				<extensions>true</extensions>
+				<configuration>
+					<serverId>ossrh</serverId>
+					<nexusUrl>https://oss.sonatype.org/</nexusUrl>
+					<autoReleaseAfterClose>true</autoReleaseAfterClose>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+				<version>2.5</version>
+				<configuration>
+					<autoVersionSubmodules>true</autoVersionSubmodules>
+					<useReleaseProfile>false</useReleaseProfile>
+					<releaseProfiles>release</releaseProfiles>
+					<goals>deploy</goals>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-gpg-plugin</artifactId>
+				<version>1.5</version>
+				<executions>
+					<execution>
+						<id>sign-artifacts</id>
+						<phase>verify</phase>
+						<configuration>
+							<keyname>${gpg.keyname}</keyname>
+							<passphraseServerId>${gpg.keyname}</passphraseServerId>
+						</configuration>
+						<goals>
+							<goal>sign</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 			<plugin>
 				<artifactId>maven-install-plugin</artifactId>
 				<version>2.3.1</version>
@@ -27,7 +116,38 @@
 					<createChecksum>true</createChecksum>
 				</configuration>
 			</plugin>
-
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>2.10.4</version>
+				<configuration>
+					<show>private</show>
+					<nohelp>true</nohelp>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>2.4</version>
+				<configuration>
+					<descriptorRefs>
+						<descriptorRef>jar-with-dependencies</descriptorRef>
+					</descriptorRefs>
+					<archive>
+						<manifest>
+						</manifest>
+					</archive>
+				</configuration>
+				<executions>
+					<execution>
+						<id>make-assembly</id>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -37,20 +157,7 @@
 					<target>1.7</target>
 				</configuration>
 			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-jar-plugin</artifactId>
-				<version>2.4</version>
-				<configuration>
-					<useDefaultManifestFile>true</useDefaultManifestFile>
-					<archive>
-						<manifest>
-							<addClasspath>true</addClasspath>
-							<mainClass>DiversityExample</mainClass>
-						</manifest>
-					</archive>
-				</configuration>
-			</plugin>
+		
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-source-plugin</artifactId>
@@ -65,44 +172,16 @@
 					</execution>
 				</executions>
 			</plugin>
-<!-- 
-			<plugin>
-				<artifactId>maven-clean-plugin</artifactId>
-				<version>2.6.1</version>
-				<configuration>
-					<filesets>
-						<fileset>
-							<directory>lib</directory>
-							<includes>
-								<include>**/*.jar</include>
-							</includes>
-							<followSymlinks>false</followSymlinks>
-						</fileset>
-					</filesets>
-				</configuration>
-			</plugin>
-
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-dependency-plugin</artifactId>
-				<version>2.1</version>
-				<executions>
-					<execution>
-						<id>copy-dependencies</id>
-						<phase>package</phase>
-						<goals>
-							<goal>copy-dependencies</goal>
-						</goals>
-						<configuration>
-							<outputDirectory>${basedir}/lib</outputDirectory>
-							<overWriteReleases>false</overWriteReleases>
-							<overWriteSnapshots>false</overWriteSnapshots>
-							<overWriteIfNewer>true</overWriteIfNewer>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-			-->
+			<!-- <plugin> <artifactId>maven-clean-plugin</artifactId> <version>2.6.1</version> 
+				<configuration> <filesets> <fileset> <directory>lib</directory> <includes> 
+				<include>**/*.jar</include> </includes> <followSymlinks>false</followSymlinks> 
+				</fileset> </filesets> </configuration> </plugin> <plugin> <groupId>org.apache.maven.plugins</groupId> 
+				<artifactId>maven-dependency-plugin</artifactId> <version>2.1</version> <executions> 
+				<execution> <id>copy-dependencies</id> <phase>package</phase> <goals> <goal>copy-dependencies</goal> 
+				</goals> <configuration> <outputDirectory>${basedir}/lib</outputDirectory> 
+				<overWriteReleases>false</overWriteReleases> <overWriteSnapshots>false</overWriteSnapshots> 
+				<overWriteIfNewer>true</overWriteIfNewer> </configuration> </execution> </executions> 
+				</plugin> -->
 		</plugins>
 
 		<pluginManagement>
@@ -139,7 +218,7 @@
 				<filtering>true</filtering>
 			</resource>
 			<resource>
-				<directory>src/main/data</directory>
+				<directory>src/test/java</directory>
 				<filtering>true</filtering>
 			</resource>
 			<resource>
